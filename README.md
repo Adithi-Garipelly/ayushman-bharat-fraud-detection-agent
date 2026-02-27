@@ -21,6 +21,56 @@ This agent acts as a vigilant sentinel, analyzing medical claims in real-time, e
 5. **Whistleblower Escalation:** Empowers patients to report fraudulent hospital behavior (like demanded bribes or ghost surgeries) directly from their portal. These reports are immediately escalated as **CRITICAL PRIORITY** alerts on the main administrator dashboard.
 6. **Interactive Dashboard:** A comprehensive React-based UI providing government administrators with high-level KPIs, fraud distribution charts, geographical hazard maps, and a searchable ledger of flagged anomalies.
 
+## 🛠️ System Architecture
+
+```mermaid
+graph TD
+    %% Styling
+    classDef frontend fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff,rx:8px,ry:8px;
+    classDef backend fill:#8b5cf6,stroke:#6d28d9,stroke-width:2px,color:#fff,rx:8px,ry:8px;
+    classDef ai fill:#f97316,stroke:#c2410c,stroke-width:2px,color:#fff,rx:8px,ry:8px;
+    classDef data fill:#475569,stroke:#334155,stroke-width:2px,color:#fff,rx:8px,ry:8px;
+
+    %% Client Layer
+    subgraph Clients["📱 Client Interfaces (React/Vite)"]
+        A["Admin Dashboard<br/>(Government Monitors)"]:::frontend
+        P["Patient Portal<br/>(Beneficiaries)"]:::frontend
+    end
+
+    %% API Layer
+    subgraph API["🚀 API Gateway (FastAPI)"]
+        FA["Fraud Analysis API"]:::backend
+        WA["Wallet Management API"]:::backend
+        WB["Whistleblower API"]:::backend
+    end
+
+    %% Intelligence Layer
+    subgraph Engine["🧠 Core Intelligence Engine"]
+        RS["Multifaceted Risk Scoring<br/>(Severity & Repetition)"]:::ai
+        AD["Statistical Anomaly Detection<br/>(IQR Price Bounds)"]:::ai
+    end
+
+    %% Data Layer
+    subgraph Storage["🗄️ Master Data Layer (Pandas)"]
+        PM["PM-JAY Scheme Constraints"]:::data
+        WL["Beneficiary Wallet Ledger"]:::data
+        HC["Historical Claims Database"]:::data
+    end
+
+    %% Workflows
+    A -- Polls KPIs & Anomalies --> FA
+    P -- Checks ₹5L Balance --> WA
+    P -- Submits Hospital Complaints --> WB
+
+    FA -- Evaluates Claim (0-100) --> RS
+    FA -- Audits Price vs Baseline --> AD
+
+    RS -- Matches Pattern / Flags Claim --> HC
+    AD -- Validates Procedure Cost --> PM
+    WA -- Deducts Approved Claims --> WL
+    WB -- Escalate as CRITICAL --> HC
+```
+
 ## 🛠️ Technology Stack
 ### Backend
 - **Python (FastAPI):** High-performance, asynchronous REST API.
