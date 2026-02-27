@@ -1,0 +1,43 @@
+// Eraser.io Architecture Diagram for Ayushman Bharat PM-JAY Fraud Agent
+// Copy and paste this code into a new file at https://app.eraser.io to auto-generate the architecture diagram.
+
+// --- Nodes & Groups ---
+
+Frontend Apps [icon: react] {
+  Admin Dashboard [icon: layout, color: blue]
+  Patient Portal [icon: user, color: green]
+}
+
+FastAPI Backend [icon: server, color: purple] {
+  Fraud Analysis Endpoints [icon: activity]
+  Wallet Management Endpoints [icon: credit-card]
+  Whistleblower API [icon: shield-alert]
+}
+
+Core Intelligence [icon: cpu, color: orange] {
+  Multifaceted Risk Scoring Engine [icon: layers]
+  Statistical Anomaly Detection (IQR) [icon: search]
+}
+
+Data Layer (Pandas/In-Memory) [icon: database, color: gray] {
+  Beneficiary Wallet Data [icon: users]
+  Historical Claims Data [icon: file-text]
+  PM-JAY Master Database [icon: map]
+}
+
+// --- Connections ---
+
+// User flows
+Admin Dashboard > Fraud Analysis Endpoints : Polls real-time anomalies & KPIs
+Patient Portal > Wallet Management Endpoints : Fetches ₹5L wallet balance
+Patient Portal > Whistleblower API : Submits direct hospital complaints
+
+// Internal Processing
+Fraud Analysis Endpoints > Multifaceted Risk Scoring Engine : Evaluates new claims (0-100 score)
+Fraud Analysis Endpoints > Statistical Anomaly Detection (IQR) : Checks for price inflation/upcoding
+
+// Data Access
+Multifaceted Risk Scoring Engine > Historical Claims Data : Reads history / Writes flags
+Statistical Anomaly Detection (IQR) > PM-JAY Master Database : Baselines procedures vs regional cost
+Wallet Management Endpoints > Beneficiary Wallet Data : Validates & deducts funds
+Whistleblower API > Historical Claims Data : Appends critical priority flags
