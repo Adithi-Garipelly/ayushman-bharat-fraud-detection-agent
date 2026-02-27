@@ -2,7 +2,6 @@
 
 An intelligent, real-time claim monitoring and anomaly detection system specifically designed to safeguard the **Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)** scheme from medical billing fraud.
 
-![Dashboard Preview](./vigilant-ab-guard/public/placeholder.svg) *(Note: Replace with actual screenshot)*
 
 ## 🌟 The Problem
 The PM-JAY scheme provides a health cover of ₹5 Lakhs per family per year for secondary and tertiary care hospitalization. However, the system is vulnerable to various forms of fraud, including:
